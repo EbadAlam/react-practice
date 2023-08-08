@@ -1,20 +1,5 @@
-import React, { useState } from "react";
-import Swal from "sweetalert2";
-function BookForm() {
-  const [book, setBook] = useState("");
-  const [author, setAuthor] = useState("");
-  const formSubmitHandler = (e) => {
-    e.preventDefault();
-    // console.log("working");
-    if (book === "" || author === "") {
-      //   alert("error");
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Please fill fields!",
-      });
-    }
-  };
+import React from "react";
+function BookForm({ formSubmitHandler, setBook, setAuthor }) {
   return (
     <div className="container form">
       <div>

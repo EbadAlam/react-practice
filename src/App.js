@@ -7,7 +7,7 @@ import sun from "./Images/sunny.png";
 import moonWhite from "./Images/white-moon.png";
 import sunWhite from "./Images/white-sunny.png";
 import { useState } from "react";
-
+import Swal from "sweetalert2";
 function App() {
   const [moonSrc, setMoonSrc] = useState(moon);
   const [sunSrc, setSunSrc] = useState(sun);
@@ -24,6 +24,23 @@ function App() {
       mainApp.classList.remove("theme-dark");
     }
   };
+  const [book, setBook] = useState("");
+  const [author, setAuthor] = useState("");
+  const [array, setArray] = useState([]);
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
+    // console.log("working");
+    if (book === "" || author === "") {
+      //   alert("error");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please fill fields!",
+      });
+    }
+    setArray([book], [author]);
+    console.log(array);
+  };
   return (
     <div className="App">
       <ThemeSwitchButton
@@ -33,7 +50,7 @@ function App() {
         moonSrc={moonSrc}
         sunSrc={sunSrc}
       ></ThemeSwitchButton>
-      <BookForm></BookForm>
+      <BookForm setBook={setBook} setAuthor={setAuthor}></BookForm>
       <BookListing></BookListing>
       <br />
       <br />
