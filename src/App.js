@@ -7,10 +7,11 @@ import sun from "./Images/sunny.png";
 import moonWhite from "./Images/white-moon.png";
 import sunWhite from "./Images/white-sunny.png";
 import { useState } from "react";
-import Swal from "sweetalert2";
+
 function App() {
   const [moonSrc, setMoonSrc] = useState(moon);
   const [sunSrc, setSunSrc] = useState(sun);
+  // const [loading, setLoading] = useState(false);
   const onChange = (checked) => {
     const mainApp = document.querySelector(".App");
     if (checked === true) {
@@ -24,57 +25,49 @@ function App() {
       mainApp.classList.remove("theme-dark");
     }
   };
-  const [book, setBook] = useState("");
-  const [author, setAuthor] = useState("");
-  const [array, setArray] = useState([]);
-  const formSubmitHandler = (e) => {
-    e.preventDefault();
-    // console.log("working");
-    if (book === "" || author === "") {
-      //   alert("error");
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Please fill fields!",
-      });
-    }
-    setArray([book], [author]);
-    console.log(array);
-  };
+
   return (
-    <div className="App">
-      <ThemeSwitchButton
-        onChange={onChange}
-        moon={moon}
-        sun={sun}
-        moonSrc={moonSrc}
-        sunSrc={sunSrc}
-      ></ThemeSwitchButton>
-      <BookForm setBook={setBook} setAuthor={setAuthor}></BookForm>
-      <BookListing></BookListing>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-    </div>
+    <>
+      <div className="App">
+        {/* {!loading && <Loader />} */}
+        {/* <Loader /> */}
+        {/* {loading && (
+          <div> */}
+        <ThemeSwitchButton
+          onChange={onChange}
+          moon={moon}
+          sun={sun}
+          moonSrc={moonSrc}
+          sunSrc={sunSrc}
+        ></ThemeSwitchButton>
+        <BookForm></BookForm>
+        <BookListing></BookListing>
+        {/* </div>
+        )} */}
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+      </div>
+    </>
   );
 }
 
