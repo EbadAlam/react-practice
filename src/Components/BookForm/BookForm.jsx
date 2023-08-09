@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../Config/FirebaseConfig";
-function BookForm({ setLoading }) {
+
+function BookForm({ theme }) {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [loader, setLoader] = useState(false);
+
   const formSubmitHandler = async (event) => {
     event.preventDefault(event);
     if (title === "" || author === "") {
@@ -14,6 +16,13 @@ function BookForm({ setLoading }) {
         title: "Oops...",
         text: "Please fill fields!",
       });
+      const alertDiv = document.querySelector(".swal2-popup");
+      if (theme === "dark") {
+        alertDiv.classList.add("dark-alert");
+      }
+      if (theme === "light") {
+        alertDiv.classList.remove("dark-alert");
+      }
       return;
     }
     setLoader(true);
@@ -36,6 +45,14 @@ function BookForm({ setLoading }) {
       showConfirmButton: false,
       timer: 1500,
     });
+    const alertDiv = document.querySelector(".swal2-popup");
+
+    if (theme === "dark") {
+      alertDiv.classList.add("dark-alert");
+    }
+    if (theme === "light") {
+      alertDiv.classList.remove("dark-alert");
+    }
   };
   if (!loader) {
     return (
@@ -43,7 +60,7 @@ function BookForm({ setLoading }) {
         <div>
           <h1 className="heading">Add Book & Author Name</h1>
         </div>
-        <div>
+        <div className="form_div">
           <form onSubmit={formSubmitHandler}>
             <div className="book">
               <h2>Book</h2>

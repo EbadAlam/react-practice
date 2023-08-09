@@ -40,6 +40,12 @@
   font-size: 20px;
   background-color: #f0f2f5;
 }
+.form {
+  padding-top: 50px;
+}
+.form_div {
+  margin-top: 50px;
+}
 .theme-switch {
   float: right;
   justify-content: space-between;
@@ -99,4 +105,8 @@
   100% {
     transform: rotate(360deg);
   }
+}
+.dark-alert {
+  background: #101314;
+  color: white;
 }

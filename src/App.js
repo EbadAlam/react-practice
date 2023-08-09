@@ -11,15 +11,19 @@ import { useState } from "react";
 function App() {
   const [moonSrc, setMoonSrc] = useState(moon);
   const [sunSrc, setSunSrc] = useState(sun);
-  // const [loading, setLoading] = useState(false);
+  const [theme, setTheme] = useState();
+
   const onChange = (checked) => {
     const mainApp = document.querySelector(".App");
     if (checked === true) {
+      setTheme("dark");
+      // console.log(theme);
       setMoonSrc(moonWhite);
       setSunSrc(sunWhite);
       mainApp.classList.add("theme-dark");
     }
     if (checked === false) {
+      setTheme("light");
       setMoonSrc(moon);
       setSunSrc(sun);
       mainApp.classList.remove("theme-dark");
@@ -29,10 +33,6 @@ function App() {
   return (
     <>
       <div className="App">
-        {/* {!loading && <Loader />} */}
-        {/* <Loader /> */}
-        {/* {loading && (
-          <div> */}
         <ThemeSwitchButton
           onChange={onChange}
           moon={moon}
@@ -40,22 +40,8 @@ function App() {
           moonSrc={moonSrc}
           sunSrc={sunSrc}
         ></ThemeSwitchButton>
-        <BookForm></BookForm>
+        <BookForm theme={theme} />
         <BookListing></BookListing>
-        {/* </div>
-        )} */}
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <br />
         <br />
         <br />
