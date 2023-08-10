@@ -62,7 +62,7 @@ function BookForm({ theme }) {
         </div>
         <div className="form_div">
           <form onSubmit={formSubmitHandler}>
-            <div className="book">
+            <div className="book_div">
               <h2>Book</h2>
               <input
                 type="text"
@@ -71,7 +71,7 @@ function BookForm({ theme }) {
                 onKeyUp={(event) => setTitle(event.target.value)}
               />
             </div>
-            <div className="author">
+            <div className="author_div">
               <h2>Author</h2>
               <input
                 type="text"
