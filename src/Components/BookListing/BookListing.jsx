@@ -7,9 +7,9 @@ function BookListing() {
 
   const [loader, setLoader] = useState(false);
 
-  // useEffect(() => {
-  //   getBooks();
-  // }, []);
+  useEffect(() => {
+    getBooks();
+  }, []);
   const getBooks = async () => {
     try {
       setLoader(true);
