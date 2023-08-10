@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/react-practice/static/css/main.efc8f643.css",
+    "main.js": "/react-practice/static/js/main.56bfc923.js",
+    "static/js/787.635aedaa.chunk.js": "/react-practice/static/js/787.635aedaa.chunk.js",
+    "static/media/white-moon.png": "/react-practice/static/media/white-moon.8601d60ef3ba9dd5ff17.png",
+    "static/media/white-sunny.png": "/react-practice/static/media/white-sunny.7e7c8df77f7cb76e699b.png",
+    "static/media/moon.png": "/react-practice/static/media/moon.cfa37b178f3890f6d652.png",
+    "static/media/sunny.png": "/react-practice/static/media/sunny.aaf8be891f850a514929.png",
+    "index.html": "/react-practice/index.html",
+    "main.efc8f643.css.map": "/react-practice/static/css/main.efc8f643.css.map",
+    "main.56bfc923.js.map": "/react-practice/static/js/main.56bfc923.js.map",
+    "787.635aedaa.chunk.js.map": "/react-practice/static/js/787.635aedaa.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.efc8f643.css",
+    "static/js/main.56bfc923.js"
+  ]
+}
