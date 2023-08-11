@@ -115,16 +115,17 @@
   background: #101314;
   color: white;
 }
+.s-no,
 .title,
 .author {
   font-weight: 500;
   width: 49%;
 }
-.book-listing ul li div {
+.book-listing ul li {
   flex-direction: row;
   display: flex;
   /* justify-content: space-between; */
 }
-.book-listing ul li {
+/* .book-listing ul li {
   list-style: number;
-}
+} */

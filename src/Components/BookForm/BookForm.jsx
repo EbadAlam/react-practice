@@ -1,59 +1,6 @@
-import React, { useState } from "react";
-import Swal from "sweetalert2";
-import { addDoc, collection } from "firebase/firestore";
-import { db } from "../../Config/FirebaseConfig";
+import React from "react";
 
-function BookForm({ theme }) {
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
-  const [loader, setLoader] = useState(false);
-
-  const formSubmitHandler = async (event) => {
-    event.preventDefault(event);
-    if (title === "" || author === "") {
-      Swal.fire({
-        icon: "info",
-        title: "Oops...",
-        text: "Please fill fields!",
-      });
-      const alertDiv = document.querySelector(".swal2-popup");
-      if (theme === "dark") {
-        alertDiv.classList.add("dark-alert");
-      }
-      if (theme === "light") {
-        alertDiv.classList.remove("dark-alert");
-      }
-      return;
-    }
-    setLoader(true);
-    try {
-      await addDoc(collection(db, "book"), {
-        title,
-        author,
-      });
-    } catch (error) {
-      console.log("Error adding book " + error);
-    }
-    setTitle("");
-    setAuthor("");
-    setLoader(false);
-
-    Swal.fire({
-      position: "top-end",
-      icon: "success",
-      title: "Book has been saved !",
-      showConfirmButton: false,
-      timer: 1500,
-    });
-    const alertDiv = document.querySelector(".swal2-popup");
-
-    if (theme === "dark") {
-      alertDiv.classList.add("dark-alert");
-    }
-    if (theme === "light") {
-      alertDiv.classList.remove("dark-alert");
-    }
-  };
+function BookForm({ formSubmitHandler, setTitle, setAuthor, loader }) {
   if (!loader) {
     return (
       <div className="container form">

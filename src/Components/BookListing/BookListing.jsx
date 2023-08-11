@@ -1,39 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../Config/FirebaseConfig";
+import React from "react";
 
-function BookListing() {
-  const [books, setBooks] = useState([]);
-
-  const [loader, setLoader] = useState(false);
-
-  useEffect(() => {
-    getBooks();
-  }, []);
-  const getBooks = async () => {
-    try {
-      setLoader(true);
-      await getDocs(collection(db, "book")).then((QuerySnapshot) => {
-        let raw = QuerySnapshot;
-        setBooks(raw.docs);
-        setLoader(false);
-      });
-    } catch (error) {
-      console.log("error getting data:", error);
-    }
-  };
-
+function BookListing({ books, loader }) {
   if (!loader) {
     return (
       <div className="book-listing container">
         {books.map((listValue, index) => {
           return (
-            <ul>
+            <ul key={index}>
               <li>
-                <div>
-                  <h3 className="title">{listValue.data().title}</h3>
-                  <h3 className="author">{listValue.data().author}</h3>
-                </div>
+                <h3 className="s-no">{index + 1}</h3>
+                <h3 className="title">{listValue.data().title}</h3>
+                <h3 className="author">{listValue.data().author}</h3>
               </li>
             </ul>
           );
